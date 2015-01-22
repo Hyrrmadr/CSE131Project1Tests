@@ -1,0 +1,5 @@
+  Number of arguments (1) differs from number of parameters (0).
+  Argument of type int not equivalent to reference parameter x, of type float.
+  Argument passed to reference parameter x (type float) is not a modifiable L-value.
+  Argument passed to reference parameter x (type float) is not a modifiable L-value.
+Compile: failure.

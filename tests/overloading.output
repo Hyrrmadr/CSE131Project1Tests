@@ -1,0 +1,11 @@
+  Duplicate declaration of overloaded function foo.
+  redeclared identifier 'foo'.
+  Illegal call to overloaded function foo.
+  Illegal call to overloaded function foo.
+  Illegal call to overloaded function bar.
+  Illegal call to overloaded function bar.
+  Value of type float not assignable to variable of type int.
+  Number of arguments (0) differs from number of parameters (1).
+  redeclared identifier 'foo30'.
+  Duplicate declaration of overloaded function x.
+Compile: failure.

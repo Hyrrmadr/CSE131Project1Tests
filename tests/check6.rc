@@ -1,0 +1,125 @@
+//////////////
+//check 6a
+//////////////
+function: int foo()
+{
+return; //should return error, missing return type
+}
+function: void zoo()
+{
+return; //should not return error since return type is void
+}
+////////////
+//check 6b&c first bulletin
+/////////////
+function: int boo()
+{
+return true; //should return error, bool is not assignable to int
+}
+
+function : float aoo()
+{
+return 5; //no error 5 is assignable to float
+}
+
+function: int coo()
+{
+return 5.5; //should return error, 5.5 is not assignable to int
+}
+
+function: bool doo()
+{
+return 6; //should return error, return type don't match
+}
+
+function: bool hoo()
+{
+return true; //should not return error, returning bool
+}
+function: float goo()
+{
+return 4.4; //should not return error, returning float
+}
+
+//2nd and 3rd
+
+function: float & ioo()
+{
+return 6; //should return error, not a mod-Lval
+}
+
+function: float & joo()
+{
+return 6.6; //should return error, not a mod-L-Val
+}
+function: float & loo()
+{
+float x;
+return x; //should not return error, it is mod-Lval and float
+}
+
+function: float & l()
+{
+int x;
+return x; //should not return error, is mod-Lval and assignable to float
+}
+function: int & moo()
+{
+return 5; //should return error, not mod-Lval
+}
+
+function: int & m()
+{
+float x;
+return x; //should return error, not assignable to int
+}
+
+
+function: int & noo()
+{
+int x;
+return x; //should not return error because x is modifiable int
+}
+
+function: bool & ooo()
+{
+return true; //should return error, true is not modifiable-L-Val
+}
+
+function: bool & poo()
+{
+bool x;
+return x; // not error because has return type that is modifiable L-Val
+}
+////////
+//Check 6C
+////////
+function: int xoo()
+{
+  return 1; //not error because returns int type
+}
+function: float yoo()
+{
+int x;
+x = 5;
+//should return error
+}
+function: bool woo()
+{
+    bool x;
+    if(x)
+    {
+        return true; //should not cause error because returning bool type
+    }
+
+    //should return error, missing return statement
+}
+function: bool& roo()
+{
+bool x;
+    if(x)
+    {
+    return false; //should return error 6B, because not return modifiable-L-Val
+    }
+    //should return error 6C, missing return statement
+}

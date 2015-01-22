@@ -1,0 +1,20 @@
+
+typedef int***** TPTR;
+
+function : int*** foo(int** test) {
+  return 3;
+}
+
+function : void main() {
+  int ****[4] ptr;
+  TPTR tptr;
+
+  *nullptr; // ERROR
+  nullptr[2]; // ERROR
+
+  ptr[2] = 3;
+  tptr = 4;
+
+  foo(2);
+  int n = foo(nullptr);
+}

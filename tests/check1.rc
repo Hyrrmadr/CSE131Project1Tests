@@ -1,0 +1,114 @@
+function : int main() {
+
+int x;
+bool y = false;
+bool y1 = true;
+float z;
+
+
+//numeric operators
+
+x+x;	//only ints
+x-x;
+x*x;
+x/x;
+x%x;
+
+x+z;	//int and float
+x-z;
+x*z;
+x/z;
+x%z;	// error
+
+z+z;	//only float
+z-z;
+z*z;
+z/z;
+z%z;	//error
+
+x+y1; //should throw error
+y1-z; //should throw error
+
+// Logic Operators
+
+y1&&y1;
+y1||y1;
+!y1;
+
+z&&y1;	//error
+x||y1;	//error
+!x;		//error
+
+//Bitwise Operators
+
+x^x;
+x|x;
+x&x;
+
+y1^x;	//error
+y1|x;	//error
+y&x;	//error
+
+y1^y1;	//error
+z|x;	//error
+
+//Comparison Operators
+
+x<x;
+x<=x;
+x>x;
+x>=x;
+
+z<x;
+x<=z;
+x>z;
+x>=z;
+
+y1<y1;  //error
+y1<=y1; //error
+y1>y1; //error
+y1>=y1; //error
+
+x<y1; //error
+x<=y1; //error
+x>y1; //error
+x>=y1; //error
+
+y1>y1;	//error
+x>=y1;	//error
+y1<z;	//error
+y1<=y1;	//error
+
+x==x;
+x!=x;
+y==y;
+y!=y;
+x==y;  //error
+x!=y;  //error
+z==y;  //error
+x!=z;
+
+x==y;	//error
+y!=z;	//error
+
+//Unary Operators
+
+-x;
+// WNBT: -y1;	//error
+-z;
++x;
+// WNBT: +y;		//error
++z;
+
+
+//Small equations
+
+x + z / (x * -x);
+(x%x) + z;
+(z + x / x +z) >= (x + x -x + -z / x);
+(z + x / x +z) != (x + x -x + -z / x);
+((z + x / x +z) >= (x + x -x + -z / x)) && ( x <= z);
+((z + x / x +z) >= (x + x -x + -z / x)) == ( x <= z);
+(x % x + x / x * x) ^ (x + x -x);
+//no errors should be thrown
+}

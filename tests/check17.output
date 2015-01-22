@@ -1,0 +1,54 @@
+  Incompatible types to operator ==:
+    int*,
+    float*;
+  both must be of equivalent pointer type.
+  Incompatible types to operator ==:
+    int*,
+    bool*;
+  both must be of equivalent pointer type.
+  Incompatible types to operator ==:
+    float*,
+    bool*;
+  both must be of equivalent pointer type.
+  Incompatible types to operator !=:
+    int*,
+    float*;
+  both must be of equivalent pointer type.
+  Incompatible types to operator !=:
+    int*,
+    bool*;
+  both must be of equivalent pointer type.
+  Incompatible types to operator !=:
+    float*,
+    bool*;
+  both must be of equivalent pointer type.
+  Incompatible types to operator ==:
+    int*,
+    int**;
+  both must be of equivalent pointer type.
+  Incompatible types to operator ==:
+    float*,
+    float**;
+  both must be of equivalent pointer type.
+  Incompatible types to operator ==:
+    bool*,
+    bool**;
+  both must be of equivalent pointer type.
+  Incompatible types to operator !=:
+    int*,
+    int**;
+  both must be of equivalent pointer type.
+  Incompatible types to operator !=:
+    float*,
+    float**;
+  both must be of equivalent pointer type.
+  Incompatible types to operator !=:
+    bool*,
+    bool**;
+  both must be of equivalent pointer type.
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Value of type int** not assignable to variable of type float**.
+  Value of type float** not assignable to variable of type int**.
+  Value of type bool** not assignable to variable of type int**.
+  Value of type bool** not assignable to variable of type float**.
+Compile: failure.

@@ -1,0 +1,41 @@
+typedef int[100] INTEGERS;
+function : int foo(int x, int y) {
+return 0;
+}
+structdef MS {
+int a, b;
+function : int doo() { return 0; } // has no effect on size!
+};
+function : int main() {
+int i;
+float f;
+bool b;
+MS eee;
+int * p;
+int[10] ar;
+i = (int) ar; //error
+i = (int) ar[0];
+int*[10] arr;
+i = (int) arr; //error
+i = (int) arr[0];
+
+INTEGERS[10] ar2;
+i = (int) ar2[0]; //error
+i = (int) ar2[0][0];
+INTEGERS*[10] arr2;
+i = (int) arr2[0]; //error
+i = (int) arr2[0][0];
+
+f = (float) foo((int) f, (int) b); // no error
+f = (float) eee; //error
+f = (float) eee.a;
+f = (float) eee.doo();
+i = (int) (float) foo((int) f, (int) b); // no error
+i = (int) b;
+f = (float) b;
+f = (float) i;
+i = (int) p;
+p = (int*) i;
+b = (bool) main();
+return 0;
+}

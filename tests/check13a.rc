@@ -1,0 +1,12 @@
+structdef MYS {
+int x, y;
+int x; // duplicate id x, error #1
+int z, x; // duplicate id x, error #2
+function : void y() {} // duplicate id y, error #3
+function : void f( int &x )
+{ x = x + 1; } // No error with x (inner scope)
+function : void foo() {}
+function : void foo() {} // duplicate id foo, error #4
+};
+
+function : void main() {}

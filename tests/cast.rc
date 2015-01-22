@@ -1,0 +1,33 @@
+typedef float FOO;
+typedef FOO* FPTR;
+typedef int* IPTR;
+int x;
+FOO y;
+FPTR z;
+int* intPtr;
+
+function : int main() {
+   x = (int) y;
+   x = (int) (x + 4.9);
+   y = (FOO) (int) (65.3);
+   intPtr = (IPTR) z;
+   z = &((int) y); // ERROR
+   return 0;
+}
+
+const bool x2 = true;
+int[1] y2;
+int z2;
+
+function : void main2() {
+  z2 = y2[(int) x2]; // the index into the array will be 1
+}
+
+const int * x3 = nullptr;
+const int x4 = 3;
+const int * x5 = (int *) x4;
+
+function : void main3() {
+  y2[((int) x3) + 10];
+  &((int) z2); // ERROR
+}

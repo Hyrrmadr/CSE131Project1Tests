@@ -1,0 +1,10 @@
+function : int a(){
+   return 1;
+}
+
+function : void main(){
+
+     float[12] array;
+
+     array[a()] = 2;
+}

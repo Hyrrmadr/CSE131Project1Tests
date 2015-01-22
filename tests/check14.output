@@ -1,0 +1,6 @@
+  Referenced field y not found in current struct.
+  Referenced field foo2 not found in current struct.
+  Type of expression referenced by "." (int) is not a struct.
+  Referenced field y not found in type NODE.
+  undeclared identifier 'something'.
+Compile: failure.

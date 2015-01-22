@@ -1,0 +1,26 @@
+function : int main() {
+	int x;
+	float y;
+	bool z;
+	const int x1 = 3;
+
+//check 3a
+
+	x = 34 + 5;
+	y = 56.78;
+	y = x;		//no error, int assignable to float
+	z = false;
+	x1 = 5;		//error
+	4 = 5;		//error
+	x++ = 6;	//error
+	-x = 2;		//error
+	//x+y = 6;	//error, syntax error
+	(x+y) = 5; 	//semantic error (see below)
+
+//check 3b
+
+	x = 34.56;	//error, float not assignable to int
+	z = 6;		//error
+	z = x;		//error
+
+}

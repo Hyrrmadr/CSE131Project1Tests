@@ -1,0 +1,17 @@
+function : void main() {
+typedef int TEST;
+typedef TEST TEST_1;
+TEST g = 9;
+// Index expression type (float) in array declaration not equivalent to int.
+float[3.0] a;
+//Index expression type (float) in array declaration not equivalent to int.
+float[-5.0] b;
+//Index expression type (bool) in array declaration not equivalent to int.
+bool[true] c;
+// Index expression value (-69) in array declaration must be > 0.
+int[-69] d;
+// Index expression value (0) in array declaration must be > 0.
+bool[0] e;
+// Value of index expression not known at compile time.
+TEST_1[g] f;
+}

@@ -1,0 +1,9 @@
+function: void main(){
+typedef float[10] ARR;
+float[10] a;
+ARR b;
+ARR[3] c;
+
+c[2] = false;
+c[2][2] = false;
+}

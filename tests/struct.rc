@@ -1,0 +1,93 @@
+structdef MYS {
+      int x, y;
+      int x; // duplicate id x, error #1
+      int z, x; // duplicate id x, error #2
+      function : void y() {} // duplicate id y, error #3
+      function : void f( int &x )
+      {x=x+1;} //Noerrorwithx(innerscope)
+      function : void foo() {}
+      function : void foo() {} // duplicate id foo, error #4
+      function : int bar() { return 0; }
+};
+
+structdef OS {
+  int x, y, z;
+  function : int foo()
+  {
+    x = 3; // ERROR
+    this.x = 1;
+    this.y = this.z;
+    this.hello = 3; // ERROR
+    return this.foo();
+  }
+  function : int bar()
+  {
+    this.test(); // ERROR
+    return this.foo();
+  }
+};
+
+function : void y() { x = x + 1; }
+
+structdef LOL {
+  int hello;
+};
+
+structdef LOL2 {
+  int hello;
+};
+
+structdef REC {
+  REC hello; // ERROR
+};
+
+structdef REC2 {
+  REC2* hello;
+};
+
+structdef REC3 {
+  REC3[3] hello; // ERROR ?
+};
+
+structdef REC4 {
+  REC4*[3] hello;
+};
+
+typedef LOL MYS2;
+typedef LOL2 MYS3;
+typedef MYS3 MYS4;
+typedef MYS MYS5;
+
+function : int main() {
+  MYS s1;
+  MYS s2;
+  LOL s3;
+  LOL2 s4;
+  MYS2 s5;
+  MYS3 s6;
+  MYS4 s7;
+  MYS5 s8;
+
+  this.x; // ERROR
+
+  s1.y = s1.x;
+  float f = s1.y;
+  bool b = s1.x; // ERROR bool
+
+  s1.lol; // ERROR unknown
+  s8.lol(); // ERROR unknown
+
+  s1.foo();
+  s1.y = s1.bar();
+  b = s1.bar(); // ERROR bool
+  f = s1.foo(); // ERROR void
+
+  s7.foo(); // ERROR unknown
+  s7.x; // ERROR unknown
+  b = s7.hello; // ERROR bool
+
+  f.lol(); // ERROR not struct
+  f.foo; // ERROR not struct
+
+  return 0;
+}

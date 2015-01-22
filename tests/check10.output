@@ -1,0 +1,7 @@
+  Index expression type (float) in array declaration not equivalent to int.
+  Index expression type (float) in array declaration not equivalent to int.
+  Index expression type (bool) in array declaration not equivalent to int.
+  Index expression value (-69) in array declaration must be > 0.
+  Index expression value (0) in array declaration must be > 0.
+  Value of index expression not known at compile time.
+Compile: failure.

@@ -1,0 +1,126 @@
+function: int foo()
+{
+break; //error
+return 0;
+}
+
+function: int aoo()
+{
+bool b;
+if(b)
+{
+    int x;
+    break; //error
+}
+else
+{
+    int x;
+    break; //error
+}
+if(b)
+{
+    int x;
+    continue;//error
+}
+else
+{
+    int x;
+    continue; //error
+}
+while(b)
+{
+    break; //no error
+}
+while(b)
+{
+    continue; //no error
+}
+int[8] a;
+
+foreach(int b : a)
+{
+    break; //no error
+
+}
+foreach(int b : a)
+{
+    continue; //no error
+}
+if(b)
+{
+    while(b)
+    {
+        break; //no error
+        if(b)
+        {
+            break; // no error
+        }
+        else
+        {
+            continue; // no error
+        }
+
+        while(b)
+        {
+            //not declaring
+            bool [4] d;
+            foreach(bool c : d)
+            {
+                if(c)
+                {
+                    break; // no error
+                }
+                else
+                {
+                    continue; // no error
+                }
+            }
+            continue; // no error
+        }
+    }
+    while(b)
+    {
+        continue; //no error
+    }
+    foreach(int b: a)
+    {
+
+        break; //no error
+        bool g;
+        while(g)
+        {
+            break; // no error
+        }
+        while(g)
+        {
+            continue; // no error;
+        }
+    }
+    foreach(int b:a)
+    {
+        continue; //no error
+    }
+
+}
+else
+{
+    while(b)
+    {
+        break; //no error
+    }
+    while(b)
+    {
+        continue; //no error
+    }
+    foreach(int b: a)
+    {
+        break; //no error
+    }
+    foreach(int b:a)
+    {
+        continue; //no error
+    }
+}
+
+return 0;
+}

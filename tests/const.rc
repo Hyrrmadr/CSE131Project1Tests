@@ -1,0 +1,45 @@
+
+const int lol = 3;
+
+const int g1 = 3, g2 = 3 + 2, g3 = lol * 10, g4 = 3 / 0;
+static int h1 = 3, h2, h3 = g4;
+
+function : int main() {
+  const int x = 4;
+  const int x1 = 4 + 2;
+  int y = 3;
+  int y1 = x;
+  const int x2 = x + 2;
+  const int x2bis = y + 2; // ERROR
+  int y2 = 4.2; // ERROR
+  const bool x3 = 3; // ERROR
+  const int x4 = 4/0; // ERROR
+  float y3 = (3 + 3) / 0.0; // ERROR
+  int y4 = 4/(10 - (5*2)); // ERROR
+  const float x5 = 1 / 0.0000; // ERROR
+  const float x6 = 1 / 0.000000001;
+  int y5 = x2;
+  int y6 = y2;
+  const bool x7 = true && false == false || (lol == 3);
+  const int x8 = x % 0; // ERROR
+  const int t1 = -3 * 5 + 2 - 4 * 2 / 6 + +2 * x % 5;
+  const float t2 = -4.0 * 7.0 / +2.4 - (2 + 4.2);
+  const bool t3 = !x7 && false || true && x8 != lol || x8 > lol || x8 < lol || x8 <= lol && x8 >= lol;
+  const bool t4 = true && x5 != x6 || x5 > x6 || x5 < x6 || x5 <= x6 && x5 >= x6 && x5 == x6;
+  const int t5 = 45 | 32 & 3 ^ 2;
+
+  const int a = 1;
+  const int b = -x;
+  const int c = 3 / (x - 1);
+
+  const int d = 1 / ((2 / 5) * 10); // ERROR
+
+  const int x1000 = 3;
+  int* ptr;
+  *ptr = x1000;
+  ptr = &x1000;
+
+  return 1;
+}
+
+const bool end = 3; // ERROR

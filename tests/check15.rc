@@ -1,0 +1,36 @@
+function : void foo()
+{ int**** x1;
+int**** y1;
+x1 = y1;
+****x1 = ****y1;
+
+structdef MYS {
+int x;
+bool** y;
+int*** z;
+};
+
+//pass
+MYS * a;
+int test = a->x;
+bool** tea = a->y;
+int tar = (*a).x;
+tar = ***((*a).z);
+****x1 = 9;
+
+
+
+//fail
+tar = ****((*a).z);
+// tar = (*a).y;
+int** tank = (*a).z;
+int turbo = (**a).x;
+int t_rex = x1->somerandomvar;
+int poo = (*a).y;
+****x1 = 10.8;
+****x1 = true;
+**x1 = 1;
+*************** x1 = 1;
+bool poo2 = *a.y;
+
+}

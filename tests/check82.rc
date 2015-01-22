@@ -1,0 +1,28 @@
+function: void main() {
+
+int x1;
+int xx = 3;
+float y2;
+bool z;
+const int One = 1;
+const int Two = 2;
+const int Three = 3;
+const int Four = 4;
+const int Five = 5;
+
+const int x2 = 3/0, x3 = 1+2-3*4/5%6;
+const float y4 = 1+2-3*4/5%6;
+const int x4 = x3 + 1;
+const bool z1 = !true && false || true;
+const int x5 = 0xAA;
+const int x6 = 02345;
+const float y3 = 2 * 5 *4 / 3 + 6.5;
+const int result = (One + (Two + Three) - Four) * Five;
+const bool z2= (Two == (One + One));
+
+
+const int x7 = x1 +2;			//error, not known at compile time
+const int x8 = xx +2;			//error, not known at compile time
+const int x9 = !true && false || true;	//type error
+const int x10 = 2 * 5 *4 / 3 + 6.5;	//type error
+}

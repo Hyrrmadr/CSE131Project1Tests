@@ -1,0 +1,34 @@
+function : int main() {
+	int x;
+	float y;
+	bool z;
+	const int x1 = 3;
+
+	x++;
+	y++;
+	z++;	//error
+	x1++;	//error
+
+	x--;
+	y--;
+	z--;	//error
+	x1--;	//error
+
+	++x;
+	++y;
+	++z;	//error
+	++x1;	//error
+
+	--x;
+	--y;
+	--z;	//error
+	--x1;	//error
+
+	//small equations
+
+	x++ + y++ + x;
+	--x--;				//error, result of inc / dec operator is an r-val
+	++ +x;				//error, result of unary operator is an r-val
+	x++ + -- +y;		//error
+
+}

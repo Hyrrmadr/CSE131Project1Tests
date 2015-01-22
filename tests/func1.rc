@@ -1,0 +1,48 @@
+function : bool foo(float a, float b, float &c) {
+     bool x;
+     x = a > b;
+     x = (a + c) <= 2;
+     return x;
+}
+
+function : bool foo1(float a) {
+     int x;
+     x = a;
+     return x == true;
+}
+
+function : bool foo2(float a) {
+     a = j;
+     return x == true;
+}
+
+function : bool fuu() { return false; }
+function : void bar() { /* do nothing */ }
+
+function : int main() {
+  foo(1, 2, 3.3);
+
+  foo(1);
+  foo(1, 2);
+  foo(1, 2, 3, 4);
+
+  float x = 3;
+  int y = 2;
+
+  foo(true, false, x);
+  foo(1, 2, x);
+  foo(1, 2, y);
+
+  foo(false, j, x);
+
+  x();
+  lol();
+
+  foo(1, 2, x);
+
+  {
+    int x;
+    x = x + fuu(); // error: bool incompatible with + operator
+    x = bar(); // error: void not assignable to int.
+  }
+}

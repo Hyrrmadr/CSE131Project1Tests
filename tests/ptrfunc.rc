@@ -1,0 +1,53 @@
+typedef funcptr : int (int x, int y) MYPTRALIAS;
+typedef funcptr : void (int x, int y) MYPTRALIAS2;
+MYPTRALIAS myPtr1, myPtr2;
+function : int addition(int x, int y) {
+      return x + y;
+}
+function : int subtraction(int x, int y) {
+      return x - y;
+}
+function : void lol(int x, int y) {
+}
+function : int main() {
+        if (myPtr1 == nullptr && nullptr == myPtr1) {
+        myPtr1 = addition;
+}
+
+int * a = nullptr;
+
+  if (nullptr == a && a == nullptr) { }
+  if (a == a && myPtr1 == myPtr1) { }
+  if (a == myPtr1 && myPtr1 == a) { } // ERROR
+cout << myPtr1(4, 6) << endl;
+myPtr2 = subtraction;
+cout << myPtr2(5, 2) << endl;
+myPtr2 = myPtr1;
+cout << myPtr2(5, 2) << endl;
+myPtr2 = nullptr;
+MYPTRALIAS2 t1 = nullptr;
+t1 = lol;
+t1 = addition; // ERROR
+myPtr1 = lol; // ERROR
+
+  t1++; // ERROR
+  --myPtr1; // ERROR
+
+return 0;
+}
+
+function : int foo() { return 0; }
+funcptr : int() fp1 = foo; // variable declaration with init
+funcptr : int() fp2; // variable declaration without init
+funcptr : int() fp3 = lol; // ERROR
+funcptr : int() fp4 = fp1;
+funcptr : int() fp5 = nullptr;
+
+function : float something(int& x, float** y) {
+  return 0;
+}
+funcptr : int (int x, float y) foo1000 = something;
+
+function : void test() {
+	&test; //error
+}

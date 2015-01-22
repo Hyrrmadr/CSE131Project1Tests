@@ -1,0 +1,3 @@
+  Incompatible type float to binary operator &&, equivalent to bool expected.
+  Initialization value of type float not assignable to constant/variable of type int.
+Compile: failure.

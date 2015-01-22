@@ -1,0 +1,11 @@
+  Incompatible type int to unary dereference operator *, pointer expected.
+  Initialization value of type int*** not assignable to constant/variable of type int**.
+  Incompatible type MYS to unary dereference operator *, pointer expected.
+  Incompatible type int**** to operator ->, pointer to struct expected.
+  Initialization value of type bool** not assignable to constant/variable of type int.
+  Value of type float not assignable to variable of type int.
+  Value of type bool not assignable to variable of type int.
+  Value of type int not assignable to variable of type int**.
+  Incompatible type int to unary dereference operator *, pointer expected.
+  Type of expression referenced by "." (MYS*) is not a struct.
+Compile: failure.

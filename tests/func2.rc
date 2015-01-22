@@ -1,0 +1,21 @@
+function : int f() {
+  return 0;
+}
+funcptr : int() fptr;
+int x;
+int * xptr;
+function : void main() {
+  x = 5;
+  xptr = nullptr;   // in this usage, you have the 'xptr' VarSTO which is of PtrType
+  *xptr = 6;        // in this usage, you start with the 'xptr' VarSTO of PtrType, then the '*' operator will return a new VarSTO of the pointer's base type
+  *(xptr) = 7;	    // in this usage, you are delaying the actual '*' operator to work on the encapsulated expression
+  *(xptr = &x) = 9; // in this usage, you can see the '*' operator will work on a more complex encapsulated expression
+
+  f;	            // in this usage, you have the 'f' FuncSTO which is of FuncPtrType
+  fptr = nullptr;   // in this usage, you have the 'fptr' FuncSTO which is of FuncPtrType
+  f();              // in this usage, you start with 'f' FuncSTO of FuncPtrType, then the '()' operator will return a new ExprSTO of the function's return type
+  fptr();           // in this usage, you start with 'fptr' FuncSTO of FuncPtrType, then the '()' operator will return a new ExprSTO of the function's return type
+  (f)();            // now showing the delaying of the '()' operator working on encapsulated expression
+  (fptr)();         // same thing
+  (fptr = f)();     // this will store the pointer to function 'f' into 'fptr', then call the function pointed to by 'fptr'
+}

@@ -1,0 +1,8 @@
+
+function : void & foo() {
+
+}
+
+function : int main() {
+  return 0;
+}

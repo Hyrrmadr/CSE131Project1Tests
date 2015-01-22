@@ -1,0 +1,7 @@
+int x;
+int[4] a;
+int* r = &x;
+int* s = a;
+int* t = s;
+
+function : void main() {}

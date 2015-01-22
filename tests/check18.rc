@@ -1,0 +1,29 @@
+function : int foo(bool a, bool* b, int c) { return 1; }
+function : int bar(bool d, bool e, int f) { return 1; }
+function : int & foobar (bool g, bool* h, int i) { return i; }
+function : void voidfunc(float a) {}
+
+typedef funcptr : int (bool x, bool* y, int z) FUNCPTR;
+typedef funcptr : int & (bool &x, bool* y, int z) FUNCPTRREF;
+typedef funcptr : void(float w) VOIDFUNC;
+FUNCPTR object1;
+FUNCPTRREF object2;
+VOIDFUNC object3;
+
+function : void test() {
+	object1 = nullptr;			// ok nullptr to funcptr
+	object1 = foo;				// ok return type and params match
+	object3 = voidfunc;			// ok void to void
+
+	if (object1 == nullptr) {	// ok
+	}
+	if (object2 == nullptr) {	// ok
+	}
+	if (object3 == nullptr) {	// ok
+	}
+
+	foo = object1;					// Left-hand operand is not assignable (not a modifiable L-value).
+	nullptr = object1;				// Left-hand operand is not assignable (not a modifiable L-value).
+	object1 = bar;					// Value of type funcptr : int (bool d, bool e, int f) not assignable to variable of type FUNCPTR.
+	funcptr : int(int a) error = 5; // Initialization value of type int not assignable to constant/variable of type funcptr : int (int a).
+}

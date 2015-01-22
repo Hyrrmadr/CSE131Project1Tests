@@ -1,0 +1,5 @@
+const bool a = (true || (1.0 && 0.0));
+
+int x = 2.2 , y = 3;
+
+function : void main() {}

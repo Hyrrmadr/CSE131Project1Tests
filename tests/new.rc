@@ -1,0 +1,38 @@
+structdef STR {
+  int x, y, z;
+  float f;
+};
+
+function : int main() {
+  int *x;
+
+  new x;	// phase 0 will make this syntactically correct
+
+  *x = 1;
+
+  delete x;	// phase 0 will make this syntactically correct
+
+  int y;
+  new y; // ERROR not pointer
+  delete y; // ERROR not pointer
+
+  STR s;
+  new s; // ERROR not pointer
+  delete s; // ERROR not pointer
+
+  int[5] a;
+  new a; // ERROR not pointer
+  delete a; // ERROR not pointer
+
+  STR *p;
+  new p;
+  delete p;
+
+  new &y; // ERROR not modlval
+  delete &y; // ERROR not modlval
+
+  new nullptr; // ERROR syntax ? not modlval aprtly
+  delete nullptr; // ERROR syntax ? not modlval aprtly
+
+  return 0;
+}

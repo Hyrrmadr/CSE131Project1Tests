@@ -1,0 +1,11 @@
+function : int & a()
+{
+   int x;
+   return x;
+}
+
+function : void main()
+{
+   int x;
+   a() = x;
+}

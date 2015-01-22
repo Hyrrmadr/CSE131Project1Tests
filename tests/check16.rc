@@ -1,0 +1,36 @@
+function : void foo()
+{ int* x;
+float* y;
+bool* z;
+
+int****a;
+bool***b;
+float*********c;
+
+//should be able to delete before new
+delete a;
+delete b;
+delete c;
+new x;
+new y;
+new z;
+delete x;
+delete x;
+delete x;
+new a;
+new b;
+new a;
+
+
+//fails
+
+new 5;
+int p = 10;
+new p;
+delete p;
+
+
+//spec says not testing const pointers
+
+
+}

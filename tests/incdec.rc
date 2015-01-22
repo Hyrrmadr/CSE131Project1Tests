@@ -1,0 +1,24 @@
+function : int foo() {
+  return 1;
+}
+
+function : int main() {
+  int w, x, y;
+  int *p;
+  bool b;
+
+  const int i = 4;
+
+  y = x++;
+  w = ++x + --y;
+  w = w--;
+  --p;
+  p++;
+  ++b;
+  b--;
+
+  i++;
+  // ++foo();
+
+  return 0;
+}

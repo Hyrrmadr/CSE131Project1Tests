@@ -1,0 +1,3 @@
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Value of type bool not assignable to variable of type float.
+Compile: failure.

@@ -1,0 +1,10 @@
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Value of type float not assignable to variable of type int.
+  Value of type int not assignable to variable of type bool.
+  Value of type int not assignable to variable of type bool.
+  Return required in function, none found.
+Compile: failure.

@@ -1,0 +1,26 @@
+int x, y;
+int *z;
+const int w = 77;
+
+function : int foo() { return 0; }
+typedef funcptr : int() MYFP;
+
+function : void main() {
+  z = &x; // &x in this example is simply an R-val
+  &x = nullptr; // Error, since not a modifiable L-val
+  y = *&x; // *&x is essentially just x, so OK.
+  *&x = y; // The * reverses the &x, making it a modifiable L-val
+  *&w = y; // The * reverses the &w, making it a modifiable L-val
+           // even though w was originally a constant
+  &*z = z; // Error, result of address-of is not a modifiable L-val
+
+
+  MYFP MyFuncPtr;
+  MyFuncPtr = foo;
+  MyFuncPtr(); // this will be a function call to foo!
+
+  MYFP * MyFuncPtrPtr;
+  MyFuncPtrPtr = &foo; // Should be an error, since foo is an R-value
+  MyFuncPtrPtr = &MyFuncPtr; // Ok
+  (*MyFuncPtrPtr)(); // this will be a function call to foo!
+}

@@ -1,0 +1,101 @@
+typedef int TD_I;
+typedef int * TD_IP;
+TD_I tdi;
+TD_IP tdip;
+TD_IP * tdipp;
+
+structdef A {
+	int i;
+};
+
+structdef MYS {
+
+	TD_I m_i;
+	TD_IP m_ip;
+	TD_IP * m_ipp;
+	A * a;
+
+	MYS bad_mys; // error cannot be determined at compile time
+	MYS * m_mys; // ok
+
+	function : A getA() {
+		return *(this.a);
+	}
+
+	function : A & getA2() {
+		return *(this.a);
+	}
+
+	function : void setA(A * other) {
+		this.a = other;
+	}
+
+	function : void setA2(A & other) {
+		*(this.a) = other;
+	}
+	function : void setA3(A other) {
+		*(this.a) = other;
+	}
+
+};
+
+MYS gmys;
+MYS * gmysp;
+MYS ** gmyspp;
+
+
+function : int main(int x) {
+	*gmysp = gmys;
+	gmysp->m_i = 5;
+	gmysp->m_i = tdi;
+	gmysp->m_ip = tdip;
+	gmysp->m_ip = *tdipp;
+
+	// Equivalent to above block
+	*gmysp = gmys;
+	(*gmysp).m_i = 5;
+	(*gmysp).m_i = tdi;
+	(*gmysp).m_ip = tdip;
+	(*gmysp).m_ip = *tdipp;
+
+	gmys = gmys;
+	gmys.m_i = 5;
+	gmys.m_i = tdi;
+	gmys.m_ip = tdip;
+	gmys.m_ip = *tdipp;
+
+	A av;
+	A * ap;
+	A ** app;
+
+	gmysp->setA(ap);
+	gmysp->setA2(av);
+	gmysp->setA3(av);
+
+	gmys.setA(ap);
+	gmys.setA2(av);
+	gmys.setA3(av);
+
+	gmys.setA2(*ap);
+	gmys.setA2(**app);
+	gmys.setA3(*ap);
+	gmys.setA3(**app);
+
+	gmys.setA3(gmys.getA());
+	gmys.setA2(gmys.getA2());
+
+	// Argument not assignable
+	gmys.setA(gmys.getA());			// A not assignable to A*
+	gmys.setA2(gmys.getA());		// reference param expects mod-L arg
+
+	gmys.setA(av); 					// A not assignable to value parameter A*
+	gmys.setA(5);					// int not assignable to A*
+	gmys.setA(app);					// A** not assignable to A*
+
+	gmys.setA2(ap);					// A* not equivalent to A
+	gmys.setA2(app);				// A** not equivalent to A
+	gmys.setA2(5);					// int not equivalent to a (strict name equivalence)
+
+	return 0;
+
+}

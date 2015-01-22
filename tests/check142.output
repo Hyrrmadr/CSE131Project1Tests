@@ -1,0 +1,6 @@
+  Referenced field y not found in current struct.
+  Referenced field foobar not found in current struct.
+  Type of expression referenced by "." (float[3]) is not a struct.
+  Type of expression referenced by "." (float) is not a struct.
+  Referenced field helloworld not found in type STRUCT.
+Compile: failure.

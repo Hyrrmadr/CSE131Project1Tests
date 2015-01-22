@@ -1,0 +1,32 @@
+function : int main() {
+	int x;
+	float y;
+	bool z;
+	const int x1 = 3;
+
+	if(z){ x;} else{ x;}
+	if(y > x){ x;} else{ x;}
+	if( y > x == z){ x;} else{ x;}
+	if(x != y){ x;} else{ x;}
+	if(true){ x;} else{ x;}
+	if(false){ x;} else{ x;}
+	if(z && z){ x;} else{ x;}
+	if(z || z){ x;} else{ x;}
+	if(!z){ x;} else{ x;}
+	if(4){ x;} else{ x;} //error
+	if(x){ x;} else{ x;} //error
+	if(y){ x;} else{ x;} //error
+
+	while(z){x;}
+	while(!z){x;}
+	while(x>y){x;}
+	while(x == y){x;}
+	while(true){x;}
+	while(false){x;}
+	while(z && z){x;}
+	while(z || z){x;}
+	while(!z){x;}
+	while(4){x;}	//error
+	while(x){x;}	//error
+	while(y){x;}	//error
+}

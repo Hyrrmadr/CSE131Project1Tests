@@ -1,0 +1,17 @@
+  Type of index expression in array reference (float) not equivalent to int.
+  Type of index expression in array reference (float) not equivalent to int.
+  Type of index expression in array reference (float) not equivalent to int.
+  Value of type float not assignable to variable of type int.
+  Value of type float not assignable to variable of type bool.
+  Value of type bool not assignable to variable of type float.
+  Value of type bool not assignable to variable of type int.
+  Type of index expression in array reference (float) not equivalent to int.
+  Type of index expression in array reference (float) not equivalent to int.
+  Index value of 100 is outside legal range [0,100).
+  Index value of 100 is outside legal range [0,100).
+  Value of type float not assignable to variable of type int.
+  Index value of 100 is outside legal range [0,100).
+  Index value of 10000 is outside legal range [0,1000).
+  Index value of 10000 is outside legal range [0,100).
+  Type of expression referenced by array subscript (float) is not of array or pointer type.
+Compile: failure.

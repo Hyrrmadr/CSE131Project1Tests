@@ -1,0 +1,9 @@
+  Value of type float not assignable to variable of type int.
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Value of type bool not assignable to variable of type float.
+  Value of type float not assignable to variable of type int.
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Initialization value of type float not assignable to constant/variable of type int.
+Compile: failure.

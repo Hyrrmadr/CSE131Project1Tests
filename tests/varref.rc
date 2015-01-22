@@ -1,0 +1,12 @@
+function : void foo(float & f) {
+	f = 1; //assignable but not equivalent
+}
+
+function : void bar() {
+	float[3] arr;
+	foreach (float & f : arr) {
+		f = 1; //same as above
+	}
+}
+
+function : void main () {}

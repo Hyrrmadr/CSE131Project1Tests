@@ -1,0 +1,24 @@
+
+function : void main() {
+typedef int[6] MYARR;
+MYARR[4] myArrayOfArray;
+int** foo;
+foo = myArrayOfArray;  // Invalid
+
+typedef int[5] ARR5;
+typedef ARR5[5] ARR55;
+typedef ARR55*[5] ARR55P5;
+
+ARR55P5[5] aapaa;
+
+ARR55*** aappp = aapaa; // Invalid
+ARR55** aapp = aapaa; // Valid ?
+int* p = aapaa; // Valid
+int*** ppp = aapaa; // Valid ?
+
+ARR55P5* aapap = aapaa;
+ARR55** aapp0 = aapaa[0];
+ARR55** aapp1 = aapap[1];
+int * p2 = (int*) aapaa;   // this converts type 'int[5][5]*[5]*' to 'int*'
+
+}

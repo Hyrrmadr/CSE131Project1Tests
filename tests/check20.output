@@ -1,0 +1,6 @@
+  Invalid type cast. Type int[10] to type int is not supported.
+  Invalid type cast. Type int*[10] to type int is not supported.
+  Invalid type cast. Type INTEGERS to type int is not supported.
+  Invalid type cast. Type INTEGERS to type int is not supported.
+  Invalid type cast. Type MS to type float is not supported.
+Compile: failure.

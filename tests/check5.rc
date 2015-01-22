@@ -1,0 +1,34 @@
+function : bool bo() {return false;}
+function : int in() {return 2;}
+function : float fl() {return 2;} //int assignable to float, no error
+function : void vo() {}
+
+function : bool bo1(bool x, int y) {return false;}
+function : int in1(int x) {return 2;}
+function : float fl1(float x) {return 2;}
+function : int ref( float &x) {return 2;}
+function : int funcofafunc( int x) {return 3;}
+function : int func( int x ) { return funcofafunc( 5 );}
+
+
+
+function: void main() {
+
+int x1;
+float y2;
+bool z3;
+const float x2 = 2.0;
+
+z3 = bo1( x1 > y2, x1);
+in1(5 + 6 + 10 / 4 - 6 % 12);
+fl1( 5 * 5.7 / 9.6 + 4 -9);
+bo1( bo(), in1(4));
+bo1( z3 && z3, in1(4));
+func(in1(in()));
+funcofafunc(3);
+fl1(in()); 		//no error, int assignable to float
+bo(6);			//error, num of param differs
+ref(3);			//error, arg must be equivalent to int
+ref(x2);		//error, arg is not a modifiable lval
+ref(4.0 *5.6);	//error, arg is not a modifiable lval
+}

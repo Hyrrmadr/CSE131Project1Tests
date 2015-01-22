@@ -1,0 +1,103 @@
+function : int main() {
+    int* x;
+    float* y;
+    bool* z;
+
+    if(x==y) { //error non-equiv
+        return 1;
+    }
+    if(x==z) { //error non-equiv
+        return 1;
+    }
+    if(y==z) { //error non-equiv
+        return 1;
+    }
+    if(x!=y) { //error non-equiv
+        return 1;
+    }
+    if(x!=z) { //error non-equiv
+        return 1;
+    }
+    if(y!=z) {  //error non-equiv
+        return 1;
+    }
+
+    if(x==nullptr) {
+        return 1;
+    }
+    if(y==nullptr) {
+        return 1;
+    }
+    if(z==nullptr) {
+        return 1;
+    }
+    if(x!=nullptr) {
+        return 1;
+    }
+    if(y!=nullptr) {
+        return 1;
+    }
+    if(z!=nullptr) {
+        return 1;
+    }
+
+    if(nullptr==x) {
+        return 1;
+    }
+    if(nullptr==y) {
+        return 1;
+    }
+    if(nullptr==z) {
+        return 1;
+    }
+    if(nullptr!=x) {
+        return 1;
+    }
+    if(nullptr!=y) {
+        return 1;
+    }
+    if(nullptr!=z) {
+        return 1;
+    }
+    x++;
+    y++;
+    z++;
+    x--;
+    y--;
+    z--;
+
+    int ** xx;
+    float ** yy;
+    bool ** zz;
+    xx++; xx--; yy++; yy--; zz++; z--;
+
+    bool b1 = (x == xx); // error
+    bool b2 = (y == yy); // error
+    bool b3 = (z == zz); // error
+    bool b4 = (x != xx); // error
+    bool b5 = (y != yy); // error
+    bool b6 = (z != zz); // error
+
+    int ** xX;
+    float ** yY;
+    bool ** zZ;
+
+    xx = nullptr;
+    xx = xX;
+
+    yy = nullptr;
+    yy = yY;
+
+    zz = nullptr;
+    zz = zZ;
+
+    nullptr = zz; // error
+    yY = xX; // error
+    xX = yY; // error
+    xX = zZ; // error
+    yY = zZ; // error
+
+
+
+    return 0;
+}

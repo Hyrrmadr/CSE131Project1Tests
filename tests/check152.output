@@ -1,0 +1,10 @@
+  Size of field bad_mys cannot be determined at compile time.
+  Argument of type A not assignable to value parameter other, of type A*.
+  Argument passed to reference parameter other (type A) is not a modifiable L-value.
+  Argument of type A not assignable to value parameter other, of type A*.
+  Argument of type int not assignable to value parameter other, of type A*.
+  Argument of type A** not assignable to value parameter other, of type A*.
+  Argument of type A* not equivalent to reference parameter other, of type A.
+  Argument of type A** not equivalent to reference parameter other, of type A.
+  Argument of type int not equivalent to reference parameter other, of type A.
+Compile: failure.

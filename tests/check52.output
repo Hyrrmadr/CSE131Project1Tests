@@ -1,0 +1,53 @@
+  Incompatible type bool to binary operator +, numeric expected.
+  Value of type void not assignable to variable of type int.
+  Number of arguments (1) differs from number of parameters (0).
+  Number of arguments (2) differs from number of parameters (0).
+  Number of arguments (0) differs from number of parameters (1).
+  Number of arguments (2) differs from number of parameters (1).
+  Number of arguments (0) differs from number of parameters (2).
+  Number of arguments (1) differs from number of parameters (2).
+  Number of arguments (3) differs from number of parameters (2).
+  Number of arguments (0) differs from number of parameters (3).
+  Number of arguments (1) differs from number of parameters (3).
+  Number of arguments (2) differs from number of parameters (3).
+  Number of arguments (4) differs from number of parameters (3).
+  Number of arguments (4) differs from number of parameters (3).
+  Number of arguments (2) differs from number of parameters (3).
+  Argument of type float not assignable to value parameter j, of type int.
+  Argument of type bool not assignable to value parameter j, of type int.
+  Argument of type float not assignable to value parameter j, of type int.
+  Argument of type bool not assignable to value parameter g, of type float.
+  Argument of type float not assignable to value parameter j, of type int.
+  Argument of type bool not assignable to value parameter g, of type float.
+  Argument of type int not assignable to value parameter c, of type bool.
+  Argument of type float not assignable to value parameter j, of type int.
+  Argument of type bool not assignable to value parameter g, of type float.
+  Argument of type float not assignable to value parameter j, of type int.
+  Argument of type float not assignable to value parameter c, of type bool.
+  Argument of type bool not assignable to value parameter g, of type float.
+  Argument of type float not assignable to value parameter c, of type bool.
+  Argument of type float not assignable to value parameter j, of type int.
+  Argument of type bool not assignable to value parameter g, of type float.
+  Argument of type int not assignable to value parameter c, of type bool.
+  Argument of type bool not equivalent to reference parameter b, of type float.
+  Argument of type float not equivalent to reference parameter c, of type int.
+  Argument of type float not assignable to value parameter d, of type bool.
+  Argument of type int not equivalent to reference parameter b, of type float.
+  Argument of type bool not equivalent to reference parameter c, of type int.
+  Argument of type bool not assignable to value parameter a, of type float.
+  Argument of type bool not equivalent to reference parameter b, of type float.
+  Argument of type float not equivalent to reference parameter c, of type int.
+  Argument of type int not assignable to value parameter d, of type bool.
+  Argument of type bool not assignable to value parameter a, of type float.
+  Argument of type bool not equivalent to reference parameter b, of type float.
+  Argument of type float not equivalent to reference parameter c, of type int.
+  Argument of type int not assignable to value parameter d, of type bool.
+  Argument passed to reference parameter b (type float) is not a modifiable L-value.
+  Argument passed to reference parameter c (type int) is not a modifiable L-value.
+  Argument passed to reference parameter b (type float) is not a modifiable L-value.
+  Argument passed to reference parameter c (type int) is not a modifiable L-value.
+  Incompatible type bool to binary operator +, numeric expected.
+  Incompatible type int to unary operator !, equivalent to bool expected.
+  Argument of type bool not equivalent to reference parameter c, of type int.
+  Argument of type int not assignable to value parameter d, of type bool.
+Compile: failure.

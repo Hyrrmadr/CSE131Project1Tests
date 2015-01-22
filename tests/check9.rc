@@ -1,0 +1,43 @@
+typedef int INTEGER;
+typedef float FLOAT;
+typedef int[100] INTARRAY;
+typedef float[100] FLOATARRAY;
+typedef bool[100] BOOLARRAY;
+function : int main() {
+INTARRAY i;
+BOOLARRAY b;
+FLOATARRAY f;
+const int Hund = 100;
+const int Thousand = 1000;
+const int TenThousand = 10000;
+const int One = 1;
+const int Four = 4;
+const int NinetyNine = 99;
+const float FourPFour = 4.4;
+i[FourPFour] = Four; //error
+b[FourPFour] = false; //error
+f[FourPFour] = FourPFour; //error 3
+
+i[Four] = FourPFour; //error
+b[Four] = FourPFour; //error
+f[Four] = false; //error 6
+INTARRAY[Hund] square;
+square[Four][Four] = false; //error
+square[FourPFour][Four] = Four; //error
+square[Four][FourPFour] = Four; //error
+square[Four][Hund] = Four; //error
+square[Hund][Four] = Four; //error
+square[Four][Four] = FourPFour; //error 12
+FLOATARRAY[Thousand] rect;
+rect[NinetyNine][Hund] = FourPFour; //error 13
+rect[Hund][NinetyNine] = FourPFour;
+
+FLOATARRAY*[Thousand] rectPoint;
+
+rectPoint[One][One][One];
+rectPoint[TenThousand][One][One]; //error
+rectPoint[One][TenThousand][One];
+rectPoint[One][One][TenThousand]; //error
+rectPoint[One][One][One][One]; //error 16
+return 0;
+}

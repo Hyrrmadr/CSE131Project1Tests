@@ -1,0 +1,62 @@
+function : bool foo(float a, int b) {
+     return true;
+}
+
+function : bool foo(int a, int b) {
+     return true;
+}
+
+function : bool foo(float a, float b) {
+     return true;
+}
+
+function : int foo(float& a, float b) { // ERROR overloading
+     return 1;
+}
+
+function : int bar(float a) {
+  return 2;
+}
+
+function : float bar(float a, float b, float c) {
+  return 2;
+}
+
+function : void lol(int a) {
+}
+
+int foo;
+
+function : int main() {
+  int i;
+  float f;
+
+  foo(1, 2);
+
+  foo(1.2, 2.3);
+
+  foo(1.2, 2);
+
+  foo(1, 2.3); // ERROR
+
+  foo(1, true); // ERROR
+
+  bar(2); // ERROR illegal overloaded call
+
+  i = bar(2.2);
+  bar(2.2, 3.3); // ERROR number arg
+  i = bar(2.2, 3.3, 4.4); // ERROR return
+
+  lol(); // ERROR NOT OVERLOADING ONE !
+
+  return 0;
+}
+
+funcptr : void () foo30;
+
+function : void foo30(int x) {} // ERROR redeclared id
+
+structdef MYS {
+	function : int x(int a) { return 0; }
+	function : int x(int b) { return 1; } // ERROR overloading
+};

@@ -1,0 +1,50 @@
+function : void nonarray() {
+bool x = true;
+int c;
+bool e;
+// Type of expression referenced in foreach is not of array type.
+foreach (int i : 0) {}
+// Type of expression referenced in foreach is not of array type.
+foreach (float f : 0.0) {}
+// Type of expression referenced in foreach is not of array type.
+foreach (bool b : x) {}
+// Type of expression referenced in foreach is not of array type.
+foreach (bool &g : c) {}
+// Type of expression referenced in foreach is not of array type.
+foreach (int s : e) {}
+}
+function : void nonassignable() {
+typedef float[7] FLOAT_7;
+FLOAT_7 floats;
+float*[4] float_pointer;
+FLOAT_7[3] float_7_3;
+int a;
+int[4] b;
+bool d;
+// Foreach array element of type float not assignable to
+// value iteration variable i, of type int.
+foreach (int i : floats) {}
+// Foreach array element of type float* not assignable to
+// value iteration variable f, of type float.
+foreach (float f : float_pointer) {}
+// Foreach array element of type float* not assignable to
+// value iteration variable f, of type float[2].
+foreach (float[2] f : float_pointer) {}
+// Foreach array element of type FLOAT_7 not assignable to
+// value iteration variable f, of type float.
+foreach (float f : float_7_3) {}
+// Foreach array element of type int not assignable to
+// value iteration variable g, of type bool.
+foreach (bool g : b) {}
+}
+function : void nonequivalent() {
+int[8] a;
+int b;
+int[6] c;
+// Foreach array element of type int not equivalent to
+// reference iteration variable f, of type float.
+foreach (float& f : a) {}
+// Foreach array element of type int not equivalent to
+// reference iteration variable f, of type float*.
+foreach (float *&f : c) {}
+}

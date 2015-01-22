@@ -1,0 +1,20 @@
+bool pancakesAreDelicious = true;
+bool theyreEvenBetterWithLotsOfSyrup = true || pancakesAreDelicious;
+
+const int meaningOfLife = 42;
+int thanksForAllTheFish = 0xBADF00D;
+
+function : int iLovePancakesAnd( bool& importantDecision )
+{
+    if( importantDecision )
+    {
+        return meaningOfLife;
+    }
+    return thanksForAllTheFish;
+}
+
+function : int main()
+{
+    //Does this throw an error (due to the cast)?
+    return iLovePancakesAnd( (bool) theyreEvenBetterWithLotsOfSyrup );
+}

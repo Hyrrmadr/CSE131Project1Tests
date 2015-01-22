@@ -1,0 +1,190 @@
+
+function : int main() {
+    int i = 0;
+    int j = 2;
+
+    float u = 2.3;
+    float v = 3.4;
+
+    bool x = true;
+    bool y = false;
+
+    int a;
+    float b;
+    bool c;
+
+    a = i + j;
+    a = u + j; // ERROR
+    b = u + j;
+    b = i + v;
+    b = u + v;
+    a = i + x; // ERROR
+
+    a = i - j;
+    a = u - j; // ERROR
+    b = u - j;
+    b = i - v;
+    b = u - v;
+    a = i - x; // ERROR
+
+    a = i * j;
+    a = u * j; // ERROR
+    b = u * j;
+    b = i * v;
+    b = u * v;
+    a = i * x; // ERROR
+
+    a = i / j;
+    a = u / j; // ERROR
+    b = u / j;
+    b = i / v;
+    b = u / v;
+    a = i / x; // ERROR
+
+    a = i % j;
+    a = u % j; // ERROR
+    b = u % j; // ERROR
+    b = u % v; // ERROR
+    a = i % x; // ERROR
+
+    a = i <= j; // ERROR
+    a = u <= j; // ERROR
+    a = u <= v; // ERROR
+    b = i <= j; // ERROR
+    b = u <= j; // ERROR
+    b = u <= v; // ERROR
+    c = i <= j;
+    c = u <= j;
+    c = u <= v;
+    c = x <= v; // ERROR
+    c = x <= j; // ERROR
+    c = x <= y; // ERROR
+
+    a = i < j; // ERROR
+    a = u < j; // ERROR
+    a = u < v; // ERROR
+    b = i < j; // ERROR
+    b = u < j; // ERROR
+    b = u < v; // ERROR
+    c = i < j;
+    c = u < j;
+    c = u < v;
+    c = x < v; // ERROR
+    c = x < j; // ERROR
+    c = x < y; // ERROR
+
+    a = i >= j; // ERROR
+    a = u >= j; // ERROR
+    a = u >= v; // ERROR
+    b = i >= j; // ERROR
+    b = u >= j; // ERROR
+    b = u >= v; // ERROR
+    c = i >= j;
+    c = u >= j;
+    c = u >= v;
+    c = x >= v; // ERROR
+    c = x >= j; // ERROR
+    c = x >= y; // ERROR
+
+    a = i > j; // ERROR
+    a = u > j; // ERROR
+    a = u > v; // ERROR
+    b = i > j; // ERROR
+    b = u > j; // ERROR
+    b = u > v; // ERROR
+    c = i > j;
+    c = u > j;
+    c = u > v;
+    c = x > v; // ERROR
+    c = x > j; // ERROR
+    c = x > y; // ERROR
+
+    a = i == j; // ERROR
+    a = u == j; // ERROR
+    a = u == v; // ERROR
+    b = i == j; // ERROR
+    b = u == j; // ERROR
+    b = u == v; // ERROR
+    c = i == j;
+    c = u == j;
+    c = u == v;
+    c = x == v; // ERROR
+    c = x == j; // ERROR
+    c = x == y;
+
+    a = i != j; // ERROR
+    a = u != j; // ERROR
+    a = u != v; // ERROR
+    b = i != j; // ERROR
+    b = u != j; // ERROR
+    b = u != v; // ERROR
+    c = i != j;
+    c = u != j;
+    c = u != v;
+    c = x != v; // ERROR
+    c = x != j; // ERROR
+    c = x != y;
+
+    a = x && y; // ERROR
+    a = i && y; // ERROR
+    b = x && y; // ERROR
+    b = u && y; // ERROR
+    c = i && y; // ERROR
+    c = u && y; // ERROR
+    c = x && y;
+
+    a = x || y; // ERROR
+    a = i || y; // ERROR
+    b = x || y; // ERROR
+    b = u || y; // ERROR
+    c = i || y; // ERROR
+    c = u || y; // ERROR
+    c = x || y;
+
+    a = !i; // ERROR
+    a = !y; // ERROR
+    b = !u; // ERROR
+    b = !y; // ERROR
+    c = !i; // ERROR
+    c = !u; // ERROR
+    c = !x;
+
+    a = i & j;
+    a = u & j; // ERROR
+    a = u & v; // ERROR
+    a = i & y; // ERROR
+    b = i & j;
+    b = u & j; // ERROR
+    b = u & v; // ERROR
+    c = i & j; // ERROR
+    c = u & j; // ERROR
+
+    a = i | j;
+    a = u | j; // ERROR
+    a = u | v; // ERROR
+    a = i | y; // ERROR
+    b = i | j;
+    b = u | j; // ERROR
+    b = u | v; // ERROR
+    c = i | j; // ERROR
+    c = u | j; // ERROR
+
+    a = i ^ j;
+    a = u ^ j; // ERROR
+    a = u ^ v; // ERROR
+    a = i ^ y; // ERROR
+    b = i ^ j;
+    b = u ^ j; // ERROR
+    b = u ^ v; // ERROR
+    c = i ^ j; // ERROR
+    c = u ^ j; // ERROR
+
+    a = -i + +j - +i - -j;
+    a = -u + +v - +x - -y;
+    b = -i + +j - +i - -j;
+    b = -u + +v - +x - -y;
+    c = -i + +j - +i - -j;
+    c = -u + +v - +x - -y;
+
+    return 0;
+}

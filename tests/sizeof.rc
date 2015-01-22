@@ -1,0 +1,29 @@
+typedef float FOO;
+structdef MS {
+  int a, b;
+  function : int doo() { return 0; }
+};
+int x;
+const float y = 55.5;
+bool[4] z;
+MS t;
+
+function : void foo(bool[4] &p1, bool* p2) {
+  const int x1 = 1 / (sizeof(p1) - 16);
+  const int x2 = 1 / (sizeof(p2) - 4);
+}
+
+function : void main() {
+  foo(z, z);
+  const int x1 = 1 / (sizeof(FOO) - 4);
+  const int x2 = 1 / (sizeof(MS) - 8);
+  const int x3 = 1 / (sizeof(float***) - 4);
+  const int x4 = 1 / (sizeof(int[3]) - 12);
+  const int x5 = 1 / (sizeof(x) - 4);
+  const int x6 = 1 / (sizeof(y) - 4);
+  const int x7 = 1 / (sizeof(z) - 16);
+  const int x8 = 1 / (sizeof(t) - 8);
+
+  int x;
+  sizeof(int[x]);
+}

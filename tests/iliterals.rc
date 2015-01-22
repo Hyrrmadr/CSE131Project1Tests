@@ -1,0 +1,40 @@
+
+int d1 = 0;
+int d2 = 123;
+int d3 = -123;
+int d4 = +123;
+// Test limits ?
+
+int o1 = 00;
+int o2 = 07;
+int o3 = 0345;
+int o4 = -0345;
+int o5 = +0345;
+
+int h1 = 0x0;
+int h2 = 0x5;
+int h3 = 0xa3;
+int h4 = 0x6b;
+int h5 = 0xcd;
+int h6 = 0x42;
+int h7 = -0x1e;
+int h8 = +0xf0;
+int h9 = 0xA7;
+int h10 = 0x8C;
+int h11 = 0xE9;
+
+int h21 = 0X0;
+int h22 = 0X5;
+int h23 = 0XA3;
+int h24 = 0X6B;
+int h25 = 0XCD;
+int h26 = 0X42;
+int h27 = -0X1E;
+int h28 = +0XF0;
+int h29 = 0Xa7;
+int h30 = 0X8c;
+int h31 = 0Xe9;
+
+function : int main() {
+    return 0;
+}

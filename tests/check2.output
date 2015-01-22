@@ -1,0 +1,13 @@
+  Incompatible type bool to operator ++, equivalent to int, float, or pointer expected.
+  Operand to ++ is not a modifiable L-value.
+  Incompatible type bool to operator --, equivalent to int, float, or pointer expected.
+  Operand to -- is not a modifiable L-value.
+  Incompatible type bool to operator ++, equivalent to int, float, or pointer expected.
+  Operand to ++ is not a modifiable L-value.
+  Incompatible type bool to operator --, equivalent to int, float, or pointer expected.
+  Operand to -- is not a modifiable L-value.
+  Operand to -- is not a modifiable L-value.
+  Operand to ++ is not a modifiable L-value.
+  Operand to -- is not a modifiable L-value.
+  Return required in function, none found.
+Compile: failure.

@@ -1,0 +1,106 @@
+function : bool foo(){ return false; }
+function : void bar(){ /* do nothing */ }
+function : int doo() { return 1; }
+function : void one(int j) { return; }
+function : void two(int j, float g) { return; }
+function : void three(int j, float g, bool c) { return; }
+function : float refer(float a, float& b, int& c, bool d) { return 1.5; }
+
+const int cI = 1;
+const float cF = 1.5;
+
+function: int main() {
+	int i;
+	float f;
+	bool b;
+
+	int x;
+	x = x + foo(); // Incompatible type bool to binary operator +, numeric expected.
+	x = bar(); // Value of type void not assignable to variable of type int.
+
+	// should compile with no errors
+	b = foo();
+	i = doo();
+	one(1);
+	one(i);
+	two(1, 1.5);
+	two(i, f);
+	three(1, 1.5, true);
+	three(i, f, b);
+	f = refer(1.5, f, i, true);
+
+	// errors
+	// ********************************************************************************************
+	// The number of arguments differs from the number of expected parameters;
+	// ********************************************************************************************
+	foo(b); // Number of arguments (1) differs from number of parameters (0).
+	bar(i, f); // Number of arguments (2) differs from number of parameters (0).
+	one(); // Number of arguments (0) differs from number of parameters (1).
+	one(i, f); // Number of arguments (2) differs from number of parameters (1).
+	two(); // Number of arguments (0) differs from number of parameters (2).
+	two(i); // Number of arguments (1) differs from number of parameters (2).
+	two(i, f, b); // Number of arguments (3) differs from number of parameters (2).
+	three(); // Number of arguments (0) differs from number of parameters (3).
+	three(i); // Number of arguments (1) differs from number of parameters (3).
+	three(i, f); // Number of arguments (2) differs from number of parameters (3).
+	three(i, f, b, b); // Number of arguments (4) differs from number of parameters (3).
+	// check for number of arguments comes before type check
+	three(f, b, i, b); // Number of arguments (4) differs from number of parameters (3).
+	three(f, b); // Number of arguments (2) differs from number of parameters (3).
+
+	// ********************************************************************************************
+	// A parameter is declared as pass-by-value (default) and the corresponding argument's
+	// type is not assignable to the parameter type;
+	// ********************************************************************************************
+	one(f); // Argument of type float not assignable to value parameter j, of type int.
+	one(b); // Argument of type bool not assignable to value parameter j, of type int.
+	two(f, f); // Argument of type float not assignable to value parameter j, of type int.
+	two(i, b); // Argument of type bool not assignable to value parameter g, of type float.
+	three(f, f, b); // Argument of type float not assignable to value parameter j, of type int.
+	three(i, b, b); // Argument of type bool not assignable to value parameter g, of type float.
+	three(i, f, i); // Argument of type int not assignable to value parameter c, of type bool.
+	// multiple errors
+	two(f, b);	// Argument of type float not assignable to value parameter j, of type int.
+				// Argument of type bool not assignable to value parameter g, of type float.
+	three(f, f, f);	// Argument of type float not assignable to value parameter j, of type int.
+					// Argument of type float not assignable to value parameter c, of type bool.
+	three(i, b, f); 	// Argument of type bool not assignable to value parameter g, of type float.
+						// Argument of type float not assignable to value parameter c, of type bool.
+	three(f, b, i); // Argument of type float not assignable to value parameter j, of type int.
+					// Argument of type bool not assignable to value parameter g, of type float.
+					// Argument of type int not assignable to value parameter c, of type bool.
+
+	// ********************************************************************************************
+	// A parameter is declared as pass-by-reference (using the &) and the corresponding
+	// argument's type is not equivalent to the parameter type;
+	// ********************************************************************************************
+	refer(1.5, b, i, true); // Argument of type bool not equivalent to reference parameter b, of type float.
+	refer(f, f, f, f);	// Argument of type float not equivalent to reference parameter c, of type int.
+						// Argument of type float not assignable to value parameter d, of type bool.
+	refer(i, i, b, b);		// Argument of type int not equivalent to reference parameter b, of type float.
+							// Argument of type bool not equivalent to reference parameter c, of type int.
+	refer(b, b, f, i);	// Argument of type bool not assignable to value parameter a, of type float.
+						// Argument of type bool not equivalent to reference parameter b, of type float.
+						// Argument of type float not equivalent to reference parameter c, of type int.
+						// Argument of type int not assignable to value parameter d, of type bool.
+	refer(true, true, 1+1.5, 1);	// Argument of type bool not assignable to value parameter a, of type float.
+									// Argument of type bool not equivalent to reference parameter b, of type float.
+									// Argument of type float not equivalent to reference parameter c, of type int.
+									// Argument of type int not assignable to value parameter d, of type bool.
+
+	// ********************************************************************************************
+	// A parameter is declared as pass-by-reference and the corresponding argument is not a
+	// modifiable L-value.
+	// ********************************************************************************************
+	refer(1.5, 1.5, 1, true);	// Argument passed to reference parameter b (type float) is not a modifiable L-value.
+								// Argument passed to reference parameter c (type int) is not a modifiable L-value.
+	refer(1.5, cF, cI, true);		// Argument passed to reference parameter b (type float) is not a modifiable L-value.
+									// Argument passed to reference parameter c (type int) is not a modifiable L-value.
+
+	refer(b+1, !1, 1 == 1, 1&1);	// Incompatible type bool to binary operator +, numeric expected.
+									// Incompatible type int to unary operator !, equivalent to bool expected.
+									// Argument of type bool not equivalent to reference parameter c, of type int.
+									// Argument of type int not assignable to value parameter d, of type bool.
+
+	return 0;
+}

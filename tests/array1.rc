@@ -1,0 +1,41 @@
+
+typedef int[3] ARR;
+typedef float[5] FARR;
+
+int[4]  a1;
+ARR[7]  a2;
+typedef int[4] A1;
+typedef ARR[7] A2;
+
+const int x = 4;
+const float y = 3;
+
+int*[x] a3;
+ARR[y] a4; // ERROR
+typedef int*[x] A3;
+typedef ARR[y] A4; // ERROR
+
+int z = 2;
+
+float[3.0] a5; // ERROR
+ARR[z] a6; // ERROR
+
+typedef float[3.0] A5; // ERROR
+typedef ARR[z] A6; // ERROR
+
+bool[10 * 3] a7;
+int[-1] a8; // ERROR
+
+typedef bool[10 * 3] A7;
+typedef int[-1] A8; // ERROR
+
+const int c = z; // ERROR
+
+int[-1]  a1; // ERROR
+int[z]   a9; // ERROR
+typedef int[-1] A1; // ERROR
+typedef int[z] A9; // ERROR
+
+function : int main() {
+  return 1;
+}

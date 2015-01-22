@@ -1,0 +1,40 @@
+structdef MYS {
+int g;
+int h;
+float i;
+int[20] asdf;
+};
+function : int foo(MYS asdfasdf, int qwer) {
+sizeof(asdfasdf); //92
+sizeof(qwer); //4
+return 0;
+}
+function : int main() {
+int x;
+float y;
+bool z;
+int[1] dummy;
+dummy[sizeof(x)]; //4
+dummy[sizeof(y)]; //4
+dummy[sizeof(z)]; //4
+dummy[sizeof(int)]; //4
+dummy[sizeof(float)]; //4
+dummy[sizeof(bool)]; //4
+
+int * a;
+int[10] b;
+typedef int[10] MYSTUPIDTYPEDEF;
+MYSTUPIDTYPEDEF[10] qwer;
+dummy[sizeof(qwer)]; //400
+dummy[sizeof(a)]; //4
+dummy[sizeof(b)]; //40
+MYS c;
+dummy[sizeof(MYS)]; //92
+dummy[sizeof(c)]; //92
+dummy[sizeof(foo(c, 10))]; //error
+dummy[sizeof(4)]; //error
+dummy[sizeof(4.4)]; //error
+dummy[sizeof(true)]; //error
+dummy[sizeof((x+y))]; //error
+return 0;
+}

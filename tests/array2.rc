@@ -1,0 +1,86 @@
+
+typedef int[2] ARR;
+
+const int cc = 1;
+typedef float[10] ARR2;
+
+float[10] a;
+ARR2 b;
+ARR2[2] c;
+float * d;
+
+function : void foo() {
+  c[1][9] = a[2];
+  b[b[b[b[2] - cc] + cc] - 1] = c[1][9];
+  a[2] = d[0];
+}
+
+function : void f1(int[4] t) { // ERROR
+
+}
+
+function : void f2(int* t) {
+
+}
+
+function : void test() {
+  int[4] a1;
+  int[5] a2;
+  int* a3;
+
+  f1(a1);
+  f1(a2); // ERROR ?
+  f1(a3); // ERROR ?
+
+  f2(a1);
+  f2(a2);
+  f2(a3);
+}
+
+function : int main() {
+  int[4] a1;
+
+  int x = a1[3];
+  x = a1[4]; // ERROR
+
+  const int y = 2;
+  const int z = 6;
+
+  x = a1[y];
+  x = a1[z]; // ERROR
+  x = a1[z * -10]; // ERROR
+  x = 1000;
+  x = a1[x];
+  x = a1[x * -1];
+
+  const float f1 = 3.4;
+  float f2 = 4.14;
+
+  f2 = a1[f2]; // ERROR
+  f2 = a1[f1]; // ERROR
+
+  a[2] = y;
+  a[2] = x;
+  a[2] = 4;
+  a[2] = f1; // ERROR
+
+  int*[4] a2;
+
+  a2[1][2000] = a1[0];
+  a2[2] = a1;
+  a1 = a2[1]; // ERROR
+  a2[1][-20] = a1[0]; // ???
+
+  ARR*[20] a3;
+
+  a3[5][324342][1] = 4;
+
+  a1[2][1] = 3; // ERROR
+
+  const int c = 4;
+  ARR[10] a;
+  a[55]; a[0-99]; a[x + 10]; a[c]; a[c+5]; a[-9]; a[5][7]; a[-9][0]; a[x+4][c+2]; a[-c][5+3];
+
+
+  return 1;
+}

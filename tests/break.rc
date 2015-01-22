@@ -1,0 +1,61 @@
+
+function : int main()
+{
+  break; // ERROR
+  continue; // ERROR
+
+  if (true) {
+    break; // ERROR
+    continue; // ERROR
+  }
+
+  {
+    break; // ERROR
+    continue; // ERROR
+    if (false) {
+      break; // ERROR
+      continue; // ERROR
+    }
+  }
+
+  while (true)
+  {
+    break;
+    continue;
+    if (false) {
+      break;
+      continue;
+      if (false) {
+      } else {
+        break;
+        continue;
+      }
+    }
+    {
+      break;
+      continue;
+    }
+  }
+
+  int[4] b;
+  foreach (int a : b)
+  {
+    break;
+    continue;
+    if (false) {
+      break;
+      continue;
+      if (false) {
+      } else {
+        break;
+        continue;
+      }
+    }
+    {
+      break;
+      continue;
+    }
+  }
+
+  return 0;
+}

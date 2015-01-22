@@ -1,0 +1,16 @@
+  Incompatible types to operator ==:
+    int*,
+    MYPTRALIAS;
+  both must be of equivalent pointer type.
+  Incompatible types to operator ==:
+    MYPTRALIAS,
+    int*;
+  both must be of equivalent pointer type.
+  Value of type funcptr : int (int x, int y) not assignable to variable of type MYPTRALIAS2.
+  Value of type funcptr : void (int x, int y) not assignable to variable of type MYPTRALIAS.
+  Incompatible type MYPTRALIAS2 to operator ++, equivalent to int, float, or pointer expected.
+  Incompatible type MYPTRALIAS to operator --, equivalent to int, float, or pointer expected.
+  Initialization value of type funcptr : void (int x, int y) not assignable to constant/variable of type funcptr : int ().
+  Initialization value of type funcptr : float (int & x, float** y) not assignable to constant/variable of type funcptr : int (int x, float y).
+  Non-addressable argument of type funcptr : void () to address-of operator.
+Compile: failure.

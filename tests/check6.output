@@ -1,0 +1,15 @@
+  Return in function requires a result expression, none found.
+  Type of return expression (bool), not assignment compatible with function's return type (int).
+  Type of return expression (float), not assignment compatible with function's return type (int).
+  Type of return expression (int), not assignment compatible with function's return type (bool).
+  Type of return expression (int) is not equivalent to the function's return type (float).
+  Return expression is not a modifiable L-value for function that returns by reference.
+  Type of return expression (int) is not equivalent to the function's return type (float).
+  Return expression is not a modifiable L-value for function that returns by reference.
+  Type of return expression (float) is not equivalent to the function's return type (int).
+  Return expression is not a modifiable L-value for function that returns by reference.
+  Return required in function, none found.
+  Return required in function, none found.
+  Return expression is not a modifiable L-value for function that returns by reference.
+  Return required in function, none found.
+Compile: failure.

@@ -1,0 +1,7 @@
+  bool required for conditional test, int found.
+  bool required for conditional test, float found.
+  undeclared identifier 'z'.
+  bool required for conditional test, int found.
+  Identifier y is undeclared in the global scope.
+  Identifier z is undeclared in the global scope.
+Compile: failure.

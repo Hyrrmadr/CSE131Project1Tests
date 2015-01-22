@@ -1,0 +1,107 @@
+
+structdef STR {
+  int x;
+  function : float foo() { return 1; }
+};
+
+function : STR foo1() { STR s; return s; }
+function : STR* foo2() { STR *s; return s; }
+function : STR& foo3() { STR s; return s; }
+function : void bar1(STR s) {}
+function : void bar2(STR* s) {}
+function : void bar3(STR& s) {}
+
+function : int main() {
+  STR s1 = foo1();
+  STR *s2 = foo2();
+  s1 = foo3();
+
+  bar1(s1);
+  bar1(s2); // ERROR pointer
+  bar2(s1); // ERROR not pointer
+  bar2(s2);
+  bar3(s1);
+  bar3(s2); // ERROR pointer
+
+  bool b;
+
+  b = s2.x; // ERROR not struct
+  b = s2.foo(); // ERROR not struct
+  b = s2.lol; // ERROR not struct
+
+  b = s2->x; // ERROR bool
+  b = s2->foo(); // ERROR bool
+  b = s2->lol; // ERROR not field
+
+  b = s1->x; // ERROR not pointer
+  b = s1->foo(); // ERROR not pointer
+  b = s1->lol; // ERROR not pointer
+
+  b = (*s2).x; // ERROR bool
+  b = (*s2).foo(); // ERROR bool
+  b = (*s2).lol; // ERROR not field
+
+  s1 = *s2;
+  s2 = *s1; // ERROR not pointer
+
+  int *a;
+
+  a.test; // ERROR not struct
+  a->test; // ERROR not pointer to struct
+  (*a).test; // ERROR not struct
+
+  *a = 3;
+  *a = true; // ERROR bool -> int
+
+  s1.x = 3;
+  (*s2).x = 3;
+  s2->x = 3;
+  s1.x = false; // ERROR bool -> int
+  (*s2).x = false; // ERROR bool -> int
+  s2->x = false; // ERROR bool -> int
+
+  int[4] ar;
+  int x = 3;
+  STR* t1 = nullptr, s0;
+  int t2 = nullptr; // ERROR not pointer
+  float *t3 = ar; // ERROR int -> float
+  int *t4 = ar;
+  int *t5 = &x;
+  float* t6 = t3;
+  float *t7 = &x; // ERROR ?
+  float *t8 = t5; // ERROR ?
+
+  t6 == 1; // ERROR
+  t6 == t1; // ERROR
+  t6 == t7;
+  t6 == nullptr;
+  nullptr == t6;
+  true == 1; // ERROR
+
+  t6 != 1; // ERROR
+  t6 != t1; // ERROR
+  t6 != t7;
+  t6 != nullptr;
+  nullptr != t6;
+  true != 1; // ERROR
+
+  nullptr++; // ERROR
+  ++nullptr; // ERROR
+  nullptr--; // ERROR
+  --nullptr; // ERROR
+
+  t6++;
+  ++t6;
+  t6--;
+  --t6;
+
+  return 0;
+}
+
+typedef float[2] FA2;
+typedef FA2[3] FA2A3;
+FA2A3 fa2fa3;
+// fail, because base types are not equivalent (float** <= float[2][3])
+float **fpp = fa2fa3;
+// ok, (float[2]* <= float[2][3])
+FA2 *fa2p = fa2fa3;

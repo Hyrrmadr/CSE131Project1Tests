@@ -1,0 +1,53 @@
+int x;
+
+structdef FOO {
+    int x;
+    int y;
+
+    function : int z(int x) {
+        return x;
+    }
+};
+
+structdef NODE {
+    int x;
+    function : void foo() {}
+};
+
+structdef MYS {
+    int x;
+    function : void foo() {
+        this.x = 1;   //ok
+        this.y = 1;   //error
+        this.foo();   //ok
+        this.foo2(); //error
+    }
+    function : void foo2() {
+        this.foo();    //ok
+        this.foo2();   //ok
+    }
+};
+
+
+function : void main() {
+    {
+      FOO x;
+
+      x.z;
+    }
+
+    // checks for 14a
+    int x;
+    x.x;  //x is not a struct
+
+    NODE node;
+    node.x;  //ok
+    node.foo();  //ok
+    node.y; //NODE has no field y
+
+    structdef MYSTR {
+      int x;
+    };
+
+    something.whatever = 0;
+}

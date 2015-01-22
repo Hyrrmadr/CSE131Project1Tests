@@ -1,0 +1,4 @@
+  Operand to "new" is not a modifiable L-value.
+  Type of new's operand must be of pointer type, int found.
+  Type of delete's operand must be of pointer type, int found.
+Compile: failure.

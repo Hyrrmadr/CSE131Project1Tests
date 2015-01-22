@@ -1,0 +1,184 @@
+structdef COUNTRY{
+
+    int resources;
+    int population;
+    int militaryStrength;
+    int nuclearWeapons;
+
+    function : void improveEconomy(){
+    	this.resources++;
+    }
+
+    function : void improveMilitary(){
+    	if(this.resources > 0){
+    		this.militaryStrength++;
+    		this.resources++;
+    	}
+    }
+
+    function : void getNuclearWeapon(){
+    	if(this.resources > 20){
+    		this.resources = this.resources - 20;
+    		this.nuclearWeapons++;
+    	}
+    }
+
+    function : void forceProcreation(){
+    	this.population++;
+    }
+
+    function : bool attack(COUNTRY* c){
+    	if(this.militaryStrength > c->militaryStrength){
+    		c->population--;
+    		c->militaryStrength--;
+    		c->resources--;
+    		this.resources = this.resources+2;
+    		return true;
+    	} else {
+    		this.resources--;
+    		this.militaryStrength--;
+    		return false;
+    	}
+    	return false;
+    }
+
+    function : void threatenNuclearStrike(COUNTRY* c){
+    	if(this.nuclearWeapons > c->nuclearWeapons){
+    		this.resources++;
+    		c->resources--;
+    	}
+    }
+
+    function : void attackWithNuclearWeapons(COUNTRY* c){
+    	c->population = 0;
+
+    	if(c->nuclearWeapons > 0){
+    		this.population = 0;
+    	}
+    }
+
+    function : void saySorry(){
+    	return;
+    }
+};
+
+function : int main() {
+
+	bool endOfHumanity = false;
+
+	COUNTRY[5] countryArray;
+
+	COUNTRY America;
+	countryArray[0] = America;
+	America.population = 10;
+	America.militaryStrength = 10;
+	America.nuclearWeapons = 5;
+	America.resources = 10;
+
+	COUNTRY Russia;
+	countryArray[1] = Russia;
+	Russia.population = 6;
+	Russia.militaryStrength = 4;
+	Russia.nuclearWeapons = 5;
+	Russia.resources = 6;
+
+
+	COUNTRY China;
+	countryArray[2] = China;
+	China.population = 20;
+	China.militaryStrength = 5;
+	China.nuclearWeapons = 2;
+	China.resources = 8;
+
+	COUNTRY France;
+	countryArray[3] = France;
+	France.population = 4;
+	France.militaryStrength = 4;
+	France.nuclearWeapons = 1;
+	France.resources = 5;
+
+
+	COUNTRY Canada;
+	countryArray[4] = Canada;
+	Canada.population = 4;
+	Canada.militaryStrength = 4;
+	Canada.nuclearWeapons = 1;
+	Canada.resources = 5;
+
+	while(!endOfHumanity){
+		Canada.saySorry();
+
+		int currentIndex = 0;
+		int currentIndex2 = 0;
+		foreach(COUNTRY country : countryArray){
+		//if country is about to die, use all nukes on other countries
+			if(country.population == 0){
+				foreach(COUNTRY country2 : countryArray){
+					if(currentIndex != currentIndex2){
+						if(country.nuclearWeapons != 0 && country2.population > 0){
+							country.attackWithNuclearWeapons(&country2);
+						}
+					}
+					currentIndex2++;
+				}
+			}
+
+		//for each country if resources are low, find weaker countries to attack to take resources, if non exist, threaten nuclear strike
+		 		if(country.resources == 0){
+				currentIndex2 = 0;
+				foreach(COUNTRY country2 : countryArray){
+					if(currentIndex != currentIndex2){
+						if(country.militaryStrength >  country.militaryStrength){
+							country.attack(&country2);
+						} else {
+							country.threatenNuclearStrike(&country2);
+						}
+					}
+					currentIndex2++;
+				}
+			}
+
+			//if a country is a lot weaker than another country, gather resources to build nuke
+			bool foundVastlyStrongerCountry = false;
+			foreach(COUNTRY country2 : countryArray){
+					if(currentIndex != currentIndex2){
+						if(country2.militaryStrength >  country.militaryStrength+ 5){
+							foundVastlyStrongerCountry = true;
+						} else {
+
+						}
+					}
+					currentIndex2++;
+			}
+			if(foundVastlyStrongerCountry){
+				if(country.resources >= 20){
+					country.getNuclearWeapon();
+				} else {
+					country.improveEconomy();
+					country.improveMilitary();
+				}
+			}
+
+			//if population is very low compared to other countries, force procreation
+
+			bool isThomasHappy;
+			if(country.population < 3){
+				country.forceProcreation();
+				isThomasHappy = true;
+			} else {
+				isThomasHappy = false;
+			}
+
+			currentIndex++;
+		}
+
+		//every country is dead, no more humans, end simulation
+		if(America.population == 0 && Russia.population == 0 && China.population == 0 && France.population == 0 && Canada.population == 0){
+			endOfHumanity = true;
+			break;
+		}
+
+	}
+
+    return 0;
+}

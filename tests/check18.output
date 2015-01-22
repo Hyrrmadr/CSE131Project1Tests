@@ -1,0 +1,5 @@
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Left-hand operand is not assignable (not a modifiable L-value).
+  Value of type funcptr : int (bool d, bool e, int f) not assignable to variable of type FUNCPTR.
+  Initialization value of type int not assignable to constant/variable of type funcptr : int (int a).
+Compile: failure.

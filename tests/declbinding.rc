@@ -1,0 +1,8 @@
+int * x, y, *[42] z;
+
+function : int main() {
+    x = nullptr;
+    y = 45;
+    z[10] = x;
+    return 0;
+}

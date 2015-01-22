@@ -1,0 +1,90 @@
+
+function : void foo1() {
+  return;
+}
+
+function : void foo2() {
+  return 5;
+}
+
+function : void foo3() {
+}
+
+function : int bar1() {
+  return 5;
+}
+
+function : int bar2() {
+  return 5.3;
+}
+
+function : int bar3() {
+  return;
+}
+
+function : int bar4() {
+}
+
+function : int bar5() {
+  int x = 3;
+
+  if (x == 5) {
+    return x;
+  }
+}
+
+function : int bar6() {
+  int x = 3;
+
+  {
+    return x;
+  }
+}
+
+function : float fuu1() {
+  return 4;
+}
+
+function : float& fuu2() {
+  return 4;
+}
+
+function : float& fuu3() {
+  float f = 4;
+  return f;
+}
+
+function : float& fuu4() {
+  int f = 4;
+  return f;
+}
+
+function : float& fuu5() {
+  bool f = false;
+  return f;
+}
+
+function : float& fuu6() {
+  const float f = 3.14;
+  return f;
+}
+
+function : float& fuu7() {
+  return 5.23;
+}
+
+function : int barr1() {
+  return g;
+}
+
+function : int barr2() {
+  return true + 1;
+}
+
+function : int main() {
+  exit(false);
+  exit(3.14);
+  exit(1);
+  exit(lol);
+  return 1;
+}

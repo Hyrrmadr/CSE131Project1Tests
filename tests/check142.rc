@@ -1,0 +1,37 @@
+// CHECK14
+
+int a, b;
+float[3] array;
+
+structdef STRUCT {
+	int k;
+	function : bool foo() {
+		this.foo();
+		return true;
+	}
+	function : int bar() {
+		this.k = this.y;		// Referenced field y not found in current struct.
+		this.foobar();			// Referenced field foobar not found in current struct.
+		return 1;
+	}
+};
+
+structdef STRUCT2 {
+	STRUCT numberOne;
+	STRUCT *numberTwo;
+	int r;
+
+};
+
+function : void foo() {
+	int x, y;
+	a = array.x; 				// Type of expression referenced by "." (float[3]) is not a struct.
+	b = array[2].x;				// Type of expression referenced by "." (float) is not a struct.
+
+	STRUCT myStruct;
+	STRUCT2 myStruct2;
+	myStruct.helloworld();		// Referenced field helloworld not found in type STRUCT.
+
+	y = myStruct2.numberTwo->k;			// this is ok
+	y = myStruct2.numberTwo->bar();		// this is ok
+}

@@ -1,0 +1,13 @@
+typedef int MYINTEGER;
+
+MYINTEGER x = 3;
+MYINTEGER y = 4;
+
+function : int main() {
+  if (x + y) {}
+  if (-x) {}
+  if (+y) {}
+  if (++y) {}
+  if (x--) {}
+  return 0;
+}

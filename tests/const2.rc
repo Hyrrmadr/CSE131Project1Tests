@@ -1,0 +1,1 @@
+typedef int INTEGER;typedef INTEGER INT32;INTEGER a;INTEGER b;INT32 d = 42;INT32 f = 4.3;extern function : int foo(int& lol);const int c = 2 + 3 * 0 - 1;function : int main() {      a = b + c;      d = true;      d && false;      f = a * d + b / 2;      return a + d;}

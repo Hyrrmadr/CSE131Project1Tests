@@ -1,0 +1,25 @@
+int x;
+
+structdef MYS {
+  bool x;
+  bool y;
+  bool z;
+
+  function : void foo() {
+    float y;
+
+    if (x) {} // ERROR int ?
+    if (y) {} // ERROR float
+    if (z) {} // ERROR undeclared ?
+
+    if (this.x) {}
+    if (this.y) {}
+    if (this.z) {}
+
+    if (::x) {} // ERROR int
+    if (::y) {} // ERROR no global
+    if (::z) {} // ERROR no global
+  }
+};
+
+function : void main() {}

@@ -44,3 +44,4 @@ MIT
 ### Credits
 
 A lot of files are from the TAs or other students.
+The scripts, organisation and a few test files are from myself ([Louis Brunner](https://github.com/Hyrrmadr)).
